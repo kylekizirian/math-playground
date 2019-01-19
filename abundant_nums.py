@@ -8,6 +8,8 @@ def simple_get_divisors(num: int) -> list:
     Uses simplest method by checking all numbers from 1 to n / 2 to determine
     if they are a divisor of n
 
+    >>> simple_get_divisors()
+
     :param num: integer to get divisors of
     :return: list of divisors of num
     """
