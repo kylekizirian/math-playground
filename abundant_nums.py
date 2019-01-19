@@ -3,12 +3,15 @@ import time
 
 
 def simple_get_divisors(num: int) -> list:
-    """Returns a list of divisors of num from 1 to n / 2
+    """Returns a list of proper divisors of num from 1 to n / 2
     
     Uses simplest method by checking all numbers from 1 to n / 2 to determine
     if they are a divisor of n
 
-    >>> simple_get_divisors()
+    >>> simple_get_divisors(21)
+    [1, 3, 7]
+    >>> simple_get_divisors(100)
+    [1, 2, 4, 5, 10, 20, 25, 50]
 
     :param num: integer to get divisors of
     :return: list of divisors of num
@@ -20,11 +23,16 @@ def simple_get_divisors(num: int) -> list:
     return all_divisors
 
 
-def get_divisors_parity_check(num: int) -> list:
-    """Returns a list of divisors of num from 1 to n / 2
+def get_divisors_with_parity_check(num: int) -> list:
+    """Returns a list of proper divisors of num from 1 to n / 2
 
     Slightly more sophisticated method of getting all divisors by checking if
     num is even and, if so, not considering even numbers as possible divisors
+
+    >>> get_divisors_with_parity_check(21)
+    [1, 3, 7]
+    >>> get_divisors_with_parity_check(100)
+    [1, 2, 4, 5, 10, 20, 25, 50]
     
     :param num: integer to get divisors of
     :return: list of divisors of num
