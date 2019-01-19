@@ -5,11 +5,35 @@ import time
 def simple_get_divisors(num : int) -> list:
     '''Returns a list of divisors of num from 1 to n / 2
     
-    Uses simplest method by checking all numbers from 1
-    to n / 2 to determine if they are a divisor of n
+    Uses simplest method by checking all numbers from 1 to n / 2 to determine
+    if they are a divisor of n
+
+    :param num: integer to get divisors of
+    :return: list of divisors of num
     '''
     all_divisors = []
     for possible_divisor in range(1, math.floor(num / 2) + 1):
+        if num % possible_divisor == 0:
+            all_divisors.append(possible_divisor)
+    return all_divisors
+
+
+def get_divisors_parity_check(num : int) -> list:
+    '''Returns a list of divisors of num from 1 to n / 2
+
+    Slightly more sophisticated method of getting all divisors by checking if
+    num is even and, if so, not considering even numbers as possible divisors
+    
+    :param num: integer to get divisors of
+    :return: list of divisors of num
+    '''
+    all_divisors = []
+    increment = 1
+    # if number is odd, increment by 2 because don't have to check evens
+    if num % 2 == 1:
+        increment = 2
+
+    for possible_divisor in range(1, math.floor(num / 2) + 1, increment):
         if num % possible_divisor == 0:
             all_divisors.append(possible_divisor)
     return all_divisors
@@ -28,9 +52,14 @@ def simple_is_abundunt_num(num : int) -> bool:
     return sum(divisors) > num
 
 
+def is_abundant_num_parity_check(num : int) -> bool:
+    divisors = get_divisors_parity_check(num)
+    return sum(divisors) > num
+
+
 if __name__ == '__main__':
     
-    range_to_check = 10**4
+    range_to_check = 2 * 10**4
 
     start_time = time.time()
     for i in range(range_to_check):
@@ -40,3 +69,10 @@ if __name__ == '__main__':
     print(f'Simple check for all abundant numbers from 0 to {range_to_check} '
           f'took {end_time - start_time} seconds')
 
+    start_time = time.time()
+    for i in range(range_to_check):
+        get_divisors_parity_check(i)
+    end_time = time.time()
+
+    print(f'Check for all abundant numbers with parity from 0 to '
+          f'{range_to_check} took {end_time - start_time} seconds')
