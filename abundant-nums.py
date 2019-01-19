@@ -1,4 +1,5 @@
 import math
+import time
 
 
 def is_abundunt_num(num : int) -> bool:
@@ -15,12 +16,13 @@ def is_abundunt_num(num : int) -> bool:
                                               'than 2')
 
     divisors = []
-    for i in range(1, math.floor(num / 2) + 1):
-        if num % i == 0:
-            divisors.append(i)
+    if num % 2 == 1:
+        for i in range(1, math.floor(num / 2) + 1, 2):
+            if num % i == 0:
+                divisors.append(i)
+    else:
+        for i in range(1, math.floor(num / 2) + 1):
+            if num % i == 0:
+                divisors.append(i)
 
     return sum(divisors) > num
-
-
-if __name__ == '__main__':
-    pass
