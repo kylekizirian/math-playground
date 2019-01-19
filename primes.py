@@ -14,3 +14,16 @@ def get_list_of_primes_up_to(num: int) -> list:
             if i % prime == 0:
                 break
     return all_primes
+
+
+def is_prime(num: int) -> bool:
+    """Returns whether or not input num is prime"""
+
+    upper_bound = math.floor(math.sqrt(num))
+    primes_up_to_upper_bound = get_list_of_primes_up_to(upper_bound)
+
+    for prime in primes_up_to_upper_bound:
+        if num % prime == 0:
+            return False
+    else:
+        return True
