@@ -39,7 +39,7 @@ def get_divisors_parity_check(num : int) -> list:
     return all_divisors
 
 
-def simple_is_abundunt_num(num : int) -> bool:
+def is_abundunt_num(num : int, get_divisors_func=simple_get_divisors) -> bool:
     '''Takes in an integer and returns whether it is an abundant numuber
     
     Finds all divisors between 1 and n / 2 and sums them up, determining
@@ -48,12 +48,7 @@ def simple_is_abundunt_num(num : int) -> bool:
     :param num: number to check if abundant
     :return: bool
     '''
-    divisors = simple_get_divisors(num)
-    return sum(divisors) > num
-
-
-def is_abundant_num_parity_check(num : int) -> bool:
-    divisors = get_divisors_parity_check(num)
+    divisors = get_divisors_func(num)
     return sum(divisors) > num
 
 
@@ -63,7 +58,7 @@ if __name__ == '__main__':
 
     start_time = time.time()
     for i in range(range_to_check):
-        simple_is_abundunt_num(i)
+        is_abundunt_num(i, simple_get_divisors)
     end_time = time.time()
 
     print(f'Simple check for all abundant numbers from 0 to {range_to_check} '
@@ -71,7 +66,7 @@ if __name__ == '__main__':
 
     start_time = time.time()
     for i in range(range_to_check):
-        get_divisors_parity_check(i)
+        is_abundunt_num(i, get_divisors_parity_check)
     end_time = time.time()
 
     print(f'Check for all abundant numbers with parity from 0 to '
