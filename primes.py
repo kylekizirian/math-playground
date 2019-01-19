@@ -1,7 +1,8 @@
 import math
 
-def get_list_of_primes_up_to(num : int) -> list:
-    '''Returns list of primes up to num'''
+
+def get_list_of_primes_up_to(num: int) -> list:
+    """Returns list of primes up to num"""
 
     all_primes = [2]
     for i in range(3, num, 2):
