@@ -14,7 +14,7 @@ def simple_get_divisors(num: int) -> list:
     [1, 2, 4, 5, 10, 20, 25, 50]
 
     :param num: integer to get divisors of
-    :return: list of divisors of num
+    :return: list of proper divisors of num
     """
     all_divisors = []
     for possible_divisor in range(1, math.floor(num / 2) + 1):
@@ -33,9 +33,9 @@ def get_divisors_with_parity_check(num: int) -> list:
     [1, 3, 7]
     >>> get_divisors_with_parity_check(100)
     [1, 2, 4, 5, 10, 20, 25, 50]
-    
+
     :param num: integer to get divisors of
-    :return: list of divisors of num
+    :return: list of proper divisors of num
     """
     all_divisors = []
     increment = 1
@@ -55,7 +55,15 @@ def is_abundunt_num(num: int, get_divisors_func=simple_get_divisors) -> bool:
     Finds all divisors between 1 and n / 2 and sums them up, determining
     if their sum is greater than n. If so, returns True, else False.
 
+    >>> is_abundant_num(24)
+    True
+    >>> is_abundant_num(37)
+    False
+    >>> is_abundant_num(24, get_divisors_with_parity_check)
+    True
+
     :param num: number to check if abundant
+    :param get_divisors_func: function to use for getting num's divisors
     :return: bool
     """
     divisors = get_divisors_func(num)
@@ -78,7 +86,7 @@ if __name__ == "__main__":
 
     start_time = time.time()
     for i in range(range_to_check):
-        is_abundunt_num(i, get_divisors_parity_check)
+        is_abundunt_num(i, get_divisors_with_parity_check)
     end_time = time.time()
 
     print(
