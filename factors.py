@@ -15,13 +15,12 @@ def get_prime_factors(num: int, prime_list: list = None) -> list:
     [(2, 1), (3, 2)]
     """
 
-    upper_bound = math.ceil(math.sqrt(num))
+    upper_bound = math.ceil(num / 2) + 1
     if not prime_list:
         prime_list = primes.get_list_of_primes_up_to(upper_bound)
 
     prime_factors = []
     for prime in prime_list:
-        remainder = 0
         temp = num
         frequency = 0
         temp, remainder = divmod(temp, prime)
@@ -30,6 +29,7 @@ def get_prime_factors(num: int, prime_list: list = None) -> list:
             temp, remainder = divmod(temp, prime)
         if frequency > 0:
             prime_factors.append((prime, frequency))
+
     return prime_factors
 
 
@@ -78,3 +78,6 @@ def get_divisors_with_parity_check(num: int) -> list:
         if num % possible_divisor == 0:
             all_divisors.append(possible_divisor)
     return all_divisors
+
+
+print(get_prime_factors(14))
