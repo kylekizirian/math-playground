@@ -23,11 +23,13 @@ def get_prime_factors(num: int, prime_list: list = None) -> list:
         temp = num
         multipliciy = 0
         temp, remainder = divmod(temp, prime)
-        while remainder == 0:
+        while remainder == 0 and temp > 1:
             multipliciy += 1
             temp, remainder = divmod(temp, prime)
         if multipliciy > 0:
             prime_factors.append((prime, multipliciy))
+        if prime > upper_bound:
+            break
 
     return prime_factors
 
@@ -117,7 +119,6 @@ def get_sum_of_proper_divisors(num: int, prime_factors: list = None) -> int:
         temp_sum = 0
         for i in range(multiplicity + 1):
             temp_sum += prime_factor ** i
-            print(temp_sum)
         sum_proper_divisors *= temp_sum
 
     return sum_proper_divisors - num
