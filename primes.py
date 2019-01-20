@@ -29,7 +29,7 @@ def is_prime(num: int) -> bool:
     False
     """
 
-    upper_bound = math.floor(math.sqrt(num))
+    upper_bound = math.ceil(math.sqrt(num))
     primes_up_to_upper_bound = get_list_of_primes_up_to(upper_bound)
 
     for prime in primes_up_to_upper_bound:
