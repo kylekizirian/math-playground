@@ -1,55 +1,10 @@
 import math
 import time
 
-
-def simple_get_divisors(num: int) -> list:
-    """Returns a list of proper divisors of num from 1 to n / 2
-    
-    Uses simplest method by checking all numbers from 1 to n / 2 to determine
-    if they are a divisor of n
-
-    >>> simple_get_divisors(21)
-    [1, 3, 7]
-    >>> simple_get_divisors(100)
-    [1, 2, 4, 5, 10, 20, 25, 50]
-
-    :param num: integer to get divisors of
-    :return: list of proper divisors of num
-    """
-    all_divisors = []
-    for possible_divisor in range(1, math.floor(num / 2) + 1):
-        if num % possible_divisor == 0:
-            all_divisors.append(possible_divisor)
-    return all_divisors
+import factors
 
 
-def get_divisors_with_parity_check(num: int) -> list:
-    """Returns a list of proper divisors of num from 1 to n / 2
-
-    Slightly more sophisticated method of getting all divisors by checking if
-    num is even and, if so, not considering even numbers as possible divisors
-
-    >>> get_divisors_with_parity_check(21)
-    [1, 3, 7]
-    >>> get_divisors_with_parity_check(100)
-    [1, 2, 4, 5, 10, 20, 25, 50]
-
-    :param num: integer to get divisors of
-    :return: list of proper divisors of num
-    """
-    all_divisors = []
-    increment = 1
-    # if number is odd, increment by 2 because don't have to check evens
-    if num % 2 == 1:
-        increment = 2
-
-    for possible_divisor in range(1, math.floor(num / 2) + 1, increment):
-        if num % possible_divisor == 0:
-            all_divisors.append(possible_divisor)
-    return all_divisors
-
-
-def is_abundunt_num(num: int, get_divisors_func=simple_get_divisors) -> bool:
+def is_abundunt_num(num: int, get_divisors_func=factors.simple_get_divisors) -> bool:
     """Takes in an integer and returns whether it is an abundant numuber
     
     Finds all divisors between 1 and n / 2 and sums them up, determining
@@ -59,7 +14,7 @@ def is_abundunt_num(num: int, get_divisors_func=simple_get_divisors) -> bool:
     True
     >>> is_abundant_num(37)
     False
-    >>> is_abundant_num(24, get_divisors_with_parity_check)
+    >>> is_abundant_num(24, factors.get_divisors_with_parity_check)
     True
 
     :param num: number to check if abundant
@@ -76,7 +31,7 @@ if __name__ == "__main__":
 
     start_time = time.time()
     for i in range(range_to_check):
-        is_abundunt_num(i, simple_get_divisors)
+        is_abundunt_num(i, factors.simple_get_divisors)
     end_time = time.time()
 
     print(
@@ -86,7 +41,7 @@ if __name__ == "__main__":
 
     start_time = time.time()
     for i in range(range_to_check):
-        is_abundunt_num(i, get_divisors_with_parity_check)
+        is_abundunt_num(i, factors.get_divisors_with_parity_check)
     end_time = time.time()
 
     print(
