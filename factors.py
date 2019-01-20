@@ -68,6 +68,7 @@ def get_divisors_with_parity_check(num: int) -> list:
     :param num: integer to get divisors of
     :return: list of proper divisors of num
     """
+
     all_divisors = []
     increment = 1
     # if number is odd, increment by 2 because don't have to check evens
