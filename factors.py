@@ -79,6 +79,3 @@ def get_divisors_with_parity_check(num: int) -> list:
         if num % possible_divisor == 0:
             all_divisors.append(possible_divisor)
     return all_divisors
-
-
-print(get_prime_factors(14))
