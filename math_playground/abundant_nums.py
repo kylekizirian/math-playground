@@ -27,24 +27,44 @@ def is_abundunt_num(num: int, get_divisors_func=factors.simple_get_divisors) -> 
 
 if __name__ == "__main__":
 
-    range_to_check = 2 * 10 ** 4
+    range_to_check = 2 * 10 ** 3
 
     start_time = time.time()
-    for i in range(range_to_check):
-        is_abundunt_num(i, factors.simple_get_divisors)
+    num_abundant_numbers = 0
+    for i in range(2, range_to_check):
+        if is_abundunt_num(i, factors.simple_get_divisors):
+            num_abundant_numbers += 1
     end_time = time.time()
 
     print(
         f"Simple check for all abundant numbers from 0 to {range_to_check} "
-        f"took {end_time - start_time} seconds"
+        f"took {end_time - start_time} seconds. Found {num_abundant_numbers} "
+        f"abundant numbers"
     )
 
     start_time = time.time()
-    for i in range(range_to_check):
-        is_abundunt_num(i, factors.get_divisors_with_parity_check)
+    num_abundant_numbers = 0
+    for i in range(2, range_to_check):
+        if is_abundunt_num(i, factors.get_divisors_with_parity_check):
+            num_abundant_numbers += 1
     end_time = time.time()
 
     print(
         f"Check for all abundant numbers with parity from 0 to "
-        f"{range_to_check} took {end_time - start_time} seconds"
+        f"{range_to_check} took {end_time - start_time} seconds. "
+        f"Found {num_abundant_numbers} abundant numbers"
+    )
+
+    start_time = time.time()
+    num_abundant_numbers = 0
+    for i in range(2, range_to_check):
+        prime_factors = factors.get_prime_factors(i)
+        if factors.get_sum_of_proper_divisors(i, prime_factors) > i:
+            num_abundant_numbers += 1
+    end_time = time.time()
+
+    print(
+        f"Check for all abundant numbers with sum proper divisors from 0 to "
+        f"{range_to_check} took {end_time - start_time} seconds. Found "
+        f"{num_abundant_numbers} abundant numbers"
     )
