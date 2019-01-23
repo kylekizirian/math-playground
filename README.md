@@ -15,3 +15,14 @@ code snippets coming out of working on
 conda env create -f environment.yml
 conda activate math_env
 ```
+
+## Resources
+
+This repo is like a much less cool version of 
+[Peter Norvig's pytudes](https://github.com/norvig/pytudes)
+
+My current favorite Python resource is
+[Fluent Python](https://www.amazon.com/Fluent-Python-Concise-Effective-Programming/dp/1491946008)
+
+My current favorite math resource is
+[Concrete Mathematics](https://www.amazon.com/Concrete-Mathematics-Foundation-Computer-Science/dp/0201558025)
