@@ -21,6 +21,6 @@ class Fibonacci():
 
 if __name__ == '__main__':
 
-    fibonacci = Fibonacci(15)
-    for index, fib_num in enumerate(fibonacci, 1):
-        print(f'Fib # {index:03} = {fib_num}')
+    fibonacci = Fibonacci(100)
+    for index, fibonacci_num in enumerate(fibonacci, 1):
+        print(f'Fib # {index:03} = {fibonacci_num:27,}')
