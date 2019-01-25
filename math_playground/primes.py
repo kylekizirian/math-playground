@@ -37,3 +37,53 @@ def is_prime(num: int) -> bool:
             return False
     else:
         return True
+
+
+class Primes:
+
+    def __init__(self, number_of_primes):
+        '''Generates a list of prime numbers with given length'''
+        self._primes = [2, 3]
+
+        count = 1
+        while len(self._primes) < number_of_primes:
+            # Check numbers of form 6n-1 and 6n+1 for primes
+            next_potential_prime = 6 * count - 1
+            if self.is_prime(next_potential_prime):
+                self._primes.append(next_potential_prime)
+            next_potential_prime += 2
+            if self.is_prime(next_potential_prime):
+                if len(self._primes) < number_of_primes:
+                    self._primes.append(next_potential_prime)
+            count += 1
+
+    def __iter__(self):
+        for prime in self._primes:
+            yield prime
+
+    def __contains__(self, item):
+        return item in self._primes
+
+    def __len__(self):
+        return len(self._primes)
+
+    def is_prime(self, potential_prime):
+        '''TODO'''
+        sqrt_potential_prime = potential_prime ** 0.5
+
+        for prime in self._primes:
+            if prime > sqrt_potential_prime:
+                return True
+            elif potential_prime % prime == 0:
+                return False
+
+        assert False, f'Needed more primes to determine if {potential_prime} is prime'
+
+    def largest_prime(self):
+        '''Returns largest prime number in list of primes
+        
+        >>> primes = Primes(10)
+        >>> primes.largest_prime()
+        29
+        '''
+        return self._primes[-1]
