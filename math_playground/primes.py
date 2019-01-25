@@ -68,8 +68,22 @@ class Primes:
         return len(self._primes)
 
     def is_prime(self, potential_prime):
-        '''TODO'''
+        '''Checks if a given input number is prime
+        
+        Uses pre-calculated list of primes and checks if input is divisible
+        by any of the primes up to the sqrt of the input
+
+        >>> primes = Primes(100)
+        >>> primes.is_prime(11)
+        True
+        >>> primes.is_prime(12)
+        False
+        '''
         sqrt_potential_prime = potential_prime ** 0.5
+
+        if self._primes[-1] < sqrt_potential_prime:
+            raise IndexError('Can only check if numbers of up to '
+                             f'{self._primes[-1] ** 2} are prime')
 
         for prime in self._primes:
             if prime > sqrt_potential_prime:
@@ -77,11 +91,9 @@ class Primes:
             elif potential_prime % prime == 0:
                 return False
 
-        assert False, f'Needed more primes to determine if {potential_prime} is prime'
-
     def largest_prime(self):
         '''Returns largest prime number in list of primes
-        
+
         >>> primes = Primes(10)
         >>> primes.largest_prime()
         29
