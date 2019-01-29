@@ -16,7 +16,7 @@ def get_prime_factors(num: int, prime_list: list = None) -> list:
     """
     upper_bound = math.ceil(num / 2) + 1
     if not prime_list:
-        prime_list = primes.get_list_of_primes_up_to(upper_bound)
+        prime_list = [prime for prime in primes.Primes(upper_bound)]
 
     prime_factors = []
     for prime in prime_list:
