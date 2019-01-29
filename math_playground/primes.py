@@ -22,12 +22,10 @@ class Primes:
         5
         7
         '''
-        #self._primes = [2, 3]
         self._sieve = [True] * (up_to + 1)
-        self._sieve[0] = False
-        self._sieve[1] = False
-        for index, truth in enumerate(self._sieve):
-            if not truth:
+        self._sieve[:2] = [False] * 2
+        for index, prime in enumerate(self._sieve):
+            if not prime:
                 continue
             if index > math.ceil(up_to // 2):
                 break
