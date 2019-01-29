@@ -2,6 +2,14 @@ import math
 
 
 class Primes:
+    '''Class that generates primes up to specified number
+
+    Uses Sieve of Eratosthenes to generate the list of primes
+
+    >>> primes = Primes(20)
+    >>> [prime for prime in primes]
+    [2, 3, 5, 7, 11, 13, 17, 19]
+    '''
 
     def __init__(self, up_to: int):
         '''Generates a list of prime numbers up to given number
