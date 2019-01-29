@@ -29,10 +29,8 @@ class Primes:
                 continue
             if index > math.ceil(up_to // 2):
                 break
-            ii = index * 2
-            while ii < up_to + 1:
+            for ii in range(index * 2, up_to + 1, index):
                 self._sieve[ii] = False
-                ii += index
 
     def __iter__(self):
         ''' Iterate over prime numbers
