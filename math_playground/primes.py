@@ -41,37 +41,67 @@ def is_prime(num: int) -> bool:
 
 class Primes:
 
-    def __init__(self, number_of_primes):
-        '''Generates a list of prime numbers with given length'''
-        self._primes = [2, 3]
+    def __init__(self, up_to: int):
+        '''Generates a list of prime numbers up to given number
 
-        count = 1
-        while len(self._primes) < number_of_primes:
-            # Check numbers of form 6n-1 and 6n+1 for primes
-            next_potential_prime = 6 * count - 1
-            if self.is_prime(next_potential_prime):
-                self._primes.append(next_potential_prime)
-            next_potential_prime += 2
-            if self.is_prime(next_potential_prime):
-                if len(self._primes) < number_of_primes:
-                    self._primes.append(next_potential_prime)
-            count += 1
+        >>> primes = Primes(10)
+        >>> for prime in primes:
+        ...    print(prime)
+        2
+        3
+        5
+        7
+        '''
+        #self._primes = [2, 3]
+        self._sieve = [True] * (up_to + 1)
+        self._sieve[0] = False
+        self._sieve[1] = False
+        for index, truth in enumerate(self._sieve):
+            if not truth:
+                continue
+            if index > math.ceil(up_to // 2):
+                break
+            ii = index * 2
+            while ii < up_to + 1:
+                self._sieve[ii] = False
+                ii += index
 
     def __iter__(self):
-        for prime in self._primes:
-            yield prime
+        ''' Iterate over prime numbers
+        >>> primes = Primes(8)
+        >>> for prime in primes:
+        ...     print(prime)
+        2
+        3
+        5
+        7
+        '''
+        for index, is_prime in enumerate(self._sieve):
+            if is_prime:
+                yield index
 
-    def __contains__(self, item):
-        return item in self._primes
+    def __contains__(self, item: int):
+        '''Returns whether given number is prime
+        
+        >>> primes = Primes(50)
+        >>> 7 in primes
+        True
+        >>> 8 in primes
+        False
+        '''
+        return self._sieve[item]
 
     def __len__(self):
-        return len(self._primes)
+        '''Gets number of primes up in object
 
-    def is_prime(self, potential_prime):
+        >>> primes = Primes(50)
+        >>> len(primes)
+        15
+        '''
+        return len([prime for prime in self._sieve if prime])
+
+    def is_prime(self, potential_prime: int) -> bool:
         '''Checks if a given input number is prime
-        
-        Uses pre-calculated list of primes and checks if input is divisible
-        by any of the primes up to the sqrt of the input
 
         >>> primes = Primes(100)
         >>> primes.is_prime(11)
@@ -79,23 +109,15 @@ class Primes:
         >>> primes.is_prime(12)
         False
         '''
-        sqrt_potential_prime = potential_prime ** 0.5
+        return potential_prime in self
 
-        if self._primes[-1] < sqrt_potential_prime:
-            raise IndexError('Can only check if numbers of up to '
-                             f'{self._primes[-1] ** 2} are prime')
-
-        for prime in self._primes:
-            if prime > sqrt_potential_prime:
-                return True
-            elif potential_prime % prime == 0:
-                return False
-
-    def largest_prime(self):
+    def largest_prime(self) -> int:
         '''Returns largest prime number in list of primes
 
-        >>> primes = Primes(10)
+        >>> primes = Primes(30)
         >>> primes.largest_prime()
         29
         '''
-        return self._primes[-1]
+        for index, is_prime in reversed(list(enumerate(self._sieve))):
+            if is_prime:
+                return index
