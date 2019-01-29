@@ -2,7 +2,17 @@ import math
 
 
 class Fibonacci():
-    """Class for implementing fibonacci generator"""
+    """Class for implementing fibonacci generator
+    
+    >>> fibonacci_seq = Fibonacci(5)
+    >>> for fibonacci_num in fibonacci_seq:
+    ...     print(fibonacci_num)
+    1
+    1
+    2
+    3
+    5
+    """
 
     def __init__(self, fib_num):
         self.fib_num = fib_num
@@ -13,14 +23,7 @@ class Fibonacci():
 
         yield self.last
 
-        for _ in range(self.fib_num):
+        for _ in range(self.fib_num - 1):
             next_fib_num = self.second_last + self.last
             self.second_last, self.last = self.last, next_fib_num
             yield next_fib_num
-
-
-if __name__ == '__main__':
-
-    fibonacci = Fibonacci(100)
-    for index, fibonacci_num in enumerate(fibonacci, 1):
-        print(f'Fib # {index:03} = {fibonacci_num:27,}')
