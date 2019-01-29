@@ -107,7 +107,7 @@ def get_sum_of_proper_divisors(num: int, prime_factors: list = None) -> int:
     where each list item is a tuple of the form (prime_factor, multiplicity)
 
     >>> get_sum_of_proper_divisors(14)
-    9
+    10
     >>> get_sum_of_proper_divisors(24)
     36
     """
