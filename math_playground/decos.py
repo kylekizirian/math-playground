@@ -1,3 +1,5 @@
+import functools
+
 """Module to hold useful decorators"""
 
 def cast_args(*types):
@@ -5,7 +7,7 @@ def cast_args(*types):
     
     If None is supplied, then argument is left alone
 
-    >>> @cast_arg(None, int)
+    >>> @cast_args(None, int)
     ... def print_types(arg1, arg2):
     ...     print(f'arg1 type = {type(arg1)}')
     ...     print(f'arg2 type = {type(arg2)}')
@@ -15,13 +17,14 @@ def cast_args(*types):
     arg2 type = <class 'int'>
     """
     def decorator(func):
-        def new_func(*args, **kwds):
+        @functools.wraps(func)
+        def new_func(*args, **kwargs):
             new_args = []        
             for (arg, new_type) in zip(args, types):
                 if new_type is None:
                     new_args.append(arg)
                 else:
                     new_args.append(new_type(arg))
-            return func(*new_args, **kwds)
+            return func(*new_args, **kwargs)
         return new_func
     return decorator
