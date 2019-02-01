@@ -1,6 +1,7 @@
+"""Module to hold useful decorators"""
+
 import functools
 
-"""Module to hold useful decorators"""
 
 def cast_args(*types):
     """Casts arguments to specified type
