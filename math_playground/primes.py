@@ -23,7 +23,7 @@ class Primes:
         7
         '''
         self._sieve = [True] * (up_to + 1)
-        self._sieve[:2] = [False] * 2
+        self._sieve[:2] = [False] * 2  # mark 0 and 1 not prime
         for index, prime in enumerate(self._sieve):
             if not prime:
                 continue
@@ -58,7 +58,7 @@ class Primes:
         return self._sieve[item]
 
     def __len__(self):
-        '''Gets number of primes up in object
+        '''Gets number of primes in object
 
         >>> primes = Primes(50)
         >>> len(primes)
