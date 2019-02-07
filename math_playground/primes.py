@@ -46,6 +46,20 @@ class Primes:
             if is_prime:
                 yield index
 
+    def __reversed__(self):
+        ''' Iterate over primes starting at end
+        >>> primes = Primes(8)
+        >>> for prime in reversed(primes):
+        ...     print(prime)
+        7
+        5
+        3
+        2
+        '''
+        for index, is_prime in reversed(list(enumerate(self._sieve))):
+            if is_prime:
+                yield index
+
     def __contains__(self, item: int):
         '''Returns whether given number is prime
         
