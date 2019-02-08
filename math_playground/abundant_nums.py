@@ -4,7 +4,7 @@ import time
 import factors
 
 
-def is_abundunt_num(num: int, get_divisors_func=factors.simple_get_divisors) -> bool:
+def is_abundant_num(num: int, get_divisors_func=factors.simple_get_divisors) -> bool:
     """Takes in an integer and returns whether it is an abundant numuber
     
     Finds all divisors between 1 and n / 2 and sums them up, determining
