@@ -123,6 +123,7 @@ def get_sum_of_proper_divisors(num: int, prime_factors: list = None) -> int:
 
     return sum_proper_divisors - num
 
+
 def is_abundant_num(num: int, get_divisors_func=simple_get_divisors) -> bool:
     """Takes in an integer and returns whether it is an abundant numuber
     
