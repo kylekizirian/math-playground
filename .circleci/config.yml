@@ -21,4 +21,4 @@ jobs:
             nosetests --with-doctest --with-coverage --where math_playground/
             coverage xml -o test-reports/coverage.xml
       - store_test_results:
-        path: test-reports
+          path: test-reports
