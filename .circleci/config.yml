@@ -20,5 +20,12 @@ jobs:
             . venv/bin/activate
             nosetests --with-doctest --with-coverage --where math_playground/
             coverage xml -o test-reports/coverage.xml
+            coverage html -d htmlcov
       - store_test_results:
           path: test-reports
+      - store_artifacts:
+          path: test-reports
+      - store_artifacts:
+          path: htmlcov
+      
+
