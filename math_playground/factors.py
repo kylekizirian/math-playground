@@ -21,13 +21,13 @@ def get_prime_factors(num: int, prime_list: list = None) -> list:
     prime_factors = []
     for prime in prime_list:
         temp = num
-        multipliciy = 0
+        multiplicity = 0
         temp, remainder = divmod(temp, prime)
         while remainder == 0 and temp > 1:
-            multipliciy += 1
+            multiplicity += 1
             temp, remainder = divmod(temp, prime)
-        if multipliciy > 0:
-            prime_factors.append((prime, multipliciy))
+        if multiplicity > 0:
+            prime_factors.append((prime, multiplicity))
         if prime > upper_bound:
             break
 
