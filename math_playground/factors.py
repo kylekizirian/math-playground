@@ -70,10 +70,8 @@ def get_divisors_with_parity_check(num: int) -> list:
     :return: list of proper divisors of num
     """
     all_divisors = []
-    increment = 1
     # if number is odd, increment by 2 because don't have to check evens
-    if num % 2 == 1:
-        increment = 2
+    increment = 2 if num % 2 == 1 else 1
 
     for possible_divisor in range(1, math.floor(num / 2) + 1, increment):
         if num % possible_divisor == 0:
