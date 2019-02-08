@@ -1,3 +1,4 @@
+import itertools
 import math
 
 import primes
@@ -79,25 +80,6 @@ def get_divisors_with_parity_check(num: int) -> list:
         if num % possible_divisor == 0:
             all_divisors.append(possible_divisor)
     return all_divisors
-
-
-def get_proper_divisors_with_prime_factors(num: int, prime_factors: list = None) -> list:
-    """Returns a list of proper divisors of num from 1 to n / 2
-    
-    Gets proper divisors by first calculating num's prime factorization and
-    then using it to build a list of it's proper divisors. Can optionally pass
-    in a pre-calculated list of num's prime factors where each list item is a
-    tuple of the form (prime_factor, multiplicity)
-
-    >>> get_proper_divisors_with_prime_factors(21)
-    [1, 3, 7]
-    >>> get_proper_divisors_with_prime_factors(100)
-    [1, 2, 4, 5, 10, 20, 25, 50]
-
-    :param num: integer to get divisors of
-    :return: list of proper divisors of num
-    """
-    raise NotImplementedError
 
 
 def get_sum_of_proper_divisors(num: int, prime_factors: list = None) -> int:
