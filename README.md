@@ -1,5 +1,7 @@
 # math-playground
 
+[![CircleCI](https://circleci.com/gh/kylekizirian/math-playground.svg?style=svg)](https://circleci.com/gh/kylekizirian/math-playground)
+
 A playground for learning both math and programming side-by-side, with most
 code snippets coming out of working on
 [Project Euler](https://projecteuler.net/) problems.
