@@ -18,9 +18,9 @@ jobs:
           name: Run tests
           command: |
             . venv/bin/activate
-            nosetests --with-doctest --with-coverage --where math_playground/
-            coverage xml --include="math_playground/*" -o test-reports/coverage.xml
-            coverage html --include="math_playground/*" -d htmlcov
+            pytest --cov=math_playground --doctest-modules
+            coverage xml -o test-reports/coverage.xml
+            coverage html -d htmlcov
       - store_test_results:
           path: test-reports
       - store_artifacts:
