@@ -11,11 +11,14 @@ code snippets coming out of working on
 - [Anaconda3](https://www.anaconda.com/download/#macos) or
 [Miniconda3](https://conda.io/miniconda.html)
 
-## Create Environment
+## Create Environment, pip install, and run tests
 
 ```bash
 conda env create -f environment.yml
 conda activate math_env
+pip install -r requirements.txt
+pip install -e .
+pytest --doctest-modules
 ```
 
 ## Resources
