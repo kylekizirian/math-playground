@@ -7,6 +7,9 @@
 import math_playground
 
 from setuptools import find_packages, setup
+# versioning
+import versioneer
+
 
 # Package meta-data.
 NAME = 'math_playground'
@@ -22,7 +25,8 @@ REQUIRED = []
 # Where the magic happens:
 setup(
     name=NAME,
-    version=VERSION,
+    version=versioneer.get_version(),
+    cmdclass=versioneer.get_cmdclass(),
     description=DESCRIPTION,
     python_requires=REQUIRES_PYTHON,
     url=URL,

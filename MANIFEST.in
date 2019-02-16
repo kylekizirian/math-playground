@@ -1,0 +1,2 @@
+include versioneer.py
+include math_playground/_version.py
