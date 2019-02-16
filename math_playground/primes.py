@@ -31,6 +31,7 @@ class Primes:
                 break
             for non_prime in range(index * 2, up_to + 1, index):
                 self._sieve[non_prime] = False
+        self._len = len([prime for prime in self._sieve if prime])
 
     def __iter__(self):
         ''' Iterate over prime numbers
@@ -78,7 +79,7 @@ class Primes:
         >>> len(primes)
         15
         '''
-        return len([prime for prime in self._sieve if prime])
+        return self._len
 
     def is_prime(self, potential_prime: int) -> bool:
         '''Checks if a given input number is prime
