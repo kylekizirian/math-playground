@@ -29,5 +29,5 @@ jobs:
           path: test-reports
       - store_artifacts:
           path: htmlcov
-      - store_artifcacts:
+      - store_artifacts:
           path: dist
