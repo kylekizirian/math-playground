@@ -4,11 +4,11 @@
 # Note: To use the 'upload' functionality of this file, you must:
 #   $ pip install twine
 
-import math_playground
-
 from setuptools import find_packages, setup
 # versioning
 import versioneer
+
+import math_playground
 
 
 # Package meta-data.
