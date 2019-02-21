@@ -1,0 +1,12 @@
+package:
+  name: math_playground
+  version: "{{ load_setup_py_data().version }}"
+
+build:
+  noarch: python
+
+requirements:
+  build:
+    - python
+  run:
+    - python
