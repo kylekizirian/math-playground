@@ -14,6 +14,7 @@ jobs:
           command: |
             conda create -n math-env --file requirements.txt
             source activate math-env
+            conda-build RECIPE_PATH ./conda.recipe --output ./conda.dist
             python setup.py sdist bdist_wheel
       - run:
           name: Run tests
@@ -30,3 +31,5 @@ jobs:
           path: htmlcov
       - store_artifacts:
           path: dist
+      - store_artifacts:
+          path: conda.dist/noarch/
