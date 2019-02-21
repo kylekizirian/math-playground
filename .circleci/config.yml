@@ -13,12 +13,12 @@ jobs:
           name: Build dist
           command: |
             conda create -n math-env --file requirements.txt
-            conda activate math-env
+            source activate math-env
             python setup.py sdist bdist_wheel
       - run:
           name: Run tests
           command: |
-            conda activate math-env
+            source activate math-env
             pytest --cov=math_playground --doctest-modules
             coverage xml -o test-reports/coverage.xml
             coverage html -d htmlcov
