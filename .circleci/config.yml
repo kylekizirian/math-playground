@@ -3,7 +3,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/python:3.7
+      - image: continuumio/miniconda3:latest
 
     working_directory: ~/repo
 
@@ -12,14 +12,15 @@ jobs:
       - run:
           name: Build dist
           command: |
-            python3 -m venv venv
-            . venv/bin/activate
-            pip install -r requirements.txt
+            conda create -n math-env --file requirements.txt
+            source activate math-env
+            conda install conda-build
+            conda-build RECIPE_PATH ./conda.recipe --output-folder ./conda.dist
             python setup.py sdist bdist_wheel
       - run:
           name: Run tests
           command: |
-            . venv/bin/activate
+            source activate math-env
             pytest --cov=math_playground --doctest-modules
             coverage xml -o test-reports/coverage.xml
             coverage html -d htmlcov
@@ -31,3 +32,5 @@ jobs:
           path: htmlcov
       - store_artifacts:
           path: dist
+      - store_artifacts:
+          path: conda.dist/noarch/
