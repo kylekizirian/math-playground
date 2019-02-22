@@ -15,7 +15,7 @@ jobs:
             conda create -n math-env --file requirements.txt
             source activate math-env
             conda install conda-build
-            conda-build RECIPE_PATH ./conda.recipe --output ./conda.dist
+            conda-build RECIPE_PATH ./conda.recipe --output-folder ./conda.dist
             python setup.py sdist bdist_wheel
       - run:
           name: Run tests
