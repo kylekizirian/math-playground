@@ -31,7 +31,9 @@ class Primes:
                 break
             for non_prime in range(index * 2, up_to + 1, index):
                 self._sieve[non_prime] = False
-        self._len = len([prime for prime in self._sieve if prime])
+        self._prime_list = [index for index, prime in enumerate(self._sieve) if prime]
+        self._prime_set = set(self._prime_list)
+        self._len = len(self._prime_set)
 
     def __iter__(self):
         ''' Iterate over prime numbers
@@ -43,9 +45,8 @@ class Primes:
         5
         7
         '''
-        for index, is_prime in enumerate(self._sieve):
-            if is_prime:
-                yield index
+        for prime in self._prime_list:
+            yield prime
 
     def __reversed__(self):
         ''' Iterate over primes starting at end
@@ -57,9 +58,8 @@ class Primes:
         3
         2
         '''
-        for index, is_prime in reversed(list(enumerate(self._sieve))):
-            if is_prime:
-                yield index
+        for prime in reversed(self._prime_list):
+            yield prime
 
     def __contains__(self, item: int):
         '''Returns whether given number is prime
@@ -70,7 +70,7 @@ class Primes:
         >>> 8 in primes
         False
         '''
-        return self._sieve[item]
+        return item in self._prime_set
 
     def __len__(self):
         '''Gets number of primes in object
@@ -99,6 +99,4 @@ class Primes:
         >>> primes.largest_prime()
         29
         '''
-        for index, is_prime in reversed(list(enumerate(self._sieve))):
-            if is_prime:
-                return index
+        return self._prime_list[-1]
