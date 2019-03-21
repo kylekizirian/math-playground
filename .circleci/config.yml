@@ -9,7 +9,7 @@ jobs:
 
     steps:
       - checkout
-      -run:
+      - run:
           name: Create environment
           command: conda create -n math-env --file requirements.txt
       - run:
