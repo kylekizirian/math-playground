@@ -1,4 +1,4 @@
-# math-playground
+# pymathutils
 
 [![CircleCI](https://circleci.com/gh/kylekizirian/math-playground.svg?style=svg)](https://circleci.com/gh/kylekizirian/math-playground)
 
@@ -15,8 +15,7 @@ code snippets coming out of working on
 
 ```bash
 conda env create -f environment.yml
-conda activate math_env
-pip install -r requirements.txt
+conda activate math-env
 pip install -e .
 pytest --doctest-modules
 ```

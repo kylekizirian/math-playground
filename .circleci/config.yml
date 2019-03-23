@@ -11,21 +11,21 @@ jobs:
       - checkout
       - run:
           name: Create environment
-          command: conda create -n math-env --file requirements.txt
+          command: conda create -f environment.yml
       - run:
           name: mypy type checking
           command: |
             source activate math-env
             mypy math_playground
       - run:
-          name: Build dist
+          name: build dist
           command: |
             source activate math-env
             conda install conda-build
             conda-build RECIPE_PATH ./conda.recipe --output-folder ./conda.dist
             python setup.py sdist bdist_wheel
       - run:
-          name: Run tests
+          name: run tests
           command: |
             source activate math-env
             pytest --cov=math_playground --doctest-modules
