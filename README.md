@@ -1,6 +1,6 @@
 # pymathutils
 
-[![CircleCI](https://circleci.com/gh/kylekizirian/math-playground.svg?style=svg)](https://circleci.com/gh/kylekizirian/pymathutils)
+[![CircleCI](https://circleci.com/gh/kylekizirian/pymathutils.svg?style=svg)](https://circleci.com/gh/kylekizirian/pymathutils)
 
 A playground for learning both math and programming side-by-side, with most
 code snippets coming out of working on
