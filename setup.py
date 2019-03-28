@@ -16,7 +16,7 @@ NAME = 'pymathutils'
 DESCRIPTION = 'Playground for math related code.'
 URL = 'https://github.com/kylekizirian/math-playground'
 REQUIRES_PYTHON = '>=3.6.0'
-VERSION = math_playground.__version__
+VERSION = pymathutils.__version__
 
 # What packages are required for this module to be executed?
 REQUIRED: list = []
