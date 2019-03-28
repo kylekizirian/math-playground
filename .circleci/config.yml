@@ -16,7 +16,7 @@ jobs:
           name: mypy type checking
           command: |
             source activate math-env
-            mypy math_playground
+            mypy pymathutils
       - run:
           name: build dist
           command: |
@@ -28,7 +28,7 @@ jobs:
           name: run tests
           command: |
             source activate math-env
-            pytest --cov=math_playground --doctest-modules
+            pytest --cov=pymathutils --doctest-modules
             coverage xml -o test-reports/coverage.xml
             coverage html -d htmlcov
       - store_test_results:
