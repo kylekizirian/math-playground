@@ -11,7 +11,7 @@ jobs:
       - checkout
       - run:
           name: Create environment
-          command: conda env create -f environment.yml
+          command: conda create -f environment.yml
       - run:
           name: mypy type checking
           command: |
