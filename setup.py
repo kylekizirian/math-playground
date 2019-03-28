@@ -8,7 +8,7 @@ from setuptools import find_packages, setup
 # versioning
 import versioneer
 
-import math_playground
+import pymathutils
 
 
 # Package meta-data.
