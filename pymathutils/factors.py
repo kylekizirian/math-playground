@@ -1,6 +1,6 @@
 import math
 
-from math_playground import primes
+from pymathutils import primes
 
 
 def get_prime_factors(num: int, prime_list: list = None) -> list:
