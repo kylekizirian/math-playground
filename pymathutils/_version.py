@@ -42,8 +42,8 @@ def get_config():
     cfg.VCS = "git"
     cfg.style = "pep440"
     cfg.tag_prefix = ""
-    cfg.parentdir_prefix = "math_playground-"
-    cfg.versionfile_source = "math_playground/_version.py"
+    cfg.parentdir_prefix = "pymathutils-"
+    cfg.versionfile_source = "pymathutils/_version.py"
     cfg.verbose = False
     return cfg
 

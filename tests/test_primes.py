@@ -1,6 +1,6 @@
 import timeit
 
-from math_playground import primes
+from pymathutils import primes
 
 def test_len_primes():
     primes_under_ten = primes.Primes(10)
