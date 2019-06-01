@@ -25,7 +25,7 @@ def is_pandigital(num: int) -> bool:
     True
     >>> is_pandigital(2144)
     False
-    >>> is_pandigital(214)
+    >>> is_pandigital(210)
     False
     '''
     num_str: str = str(num)
