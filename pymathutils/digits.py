@@ -1,5 +1,5 @@
 '''Operations on digits'''
-from typing import List
+from typing import List, Tuple
 
 
 def num_digits(num: int) -> int:
@@ -46,6 +46,30 @@ def shared_digits(num1: int, num2: int) -> List[int]:
     '''
     shared_d = [int(d) for d in str(num1) if d in str(num2)]
     return list(dict.fromkeys(shared_d))
+
+
+def remove_shared_digits(num1: int, num2: int) -> Tuple[int, int]:
+    '''Takes two integers and returns them with shared digits removed
+    
+    If two integers don't share any digits, returns original numbers
+
+    >>> remove_shared_digits(49, 98)
+    (4, 8)
+    >>> remove_shared_digits(12, 34)
+    (12, 34)
+    >>> remove_shared_digits(12, 22)
+    (1, 0)
+    '''
+    num1_str, num2_str = str(num1), str(num2)
+    shared_d = shared_digits(num1, num2)
+    for d in shared_d:
+        num1_str = num1_str.replace(str(d), '')
+        num2_str = num2_str.replace(str(d), '')
+    if num1_str == '':
+        num1_str = '0'
+    if num2_str == '':
+        num2_str = '0'
+    return int(num1_str), int(num2_str)
 
 
 def is_pandigital(num: int) -> bool:
