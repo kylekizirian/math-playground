@@ -14,6 +14,22 @@ def num_digits(num: int) -> int:
     return len(str(abs(num)))
 
 
+def share_digits(num1: int, num2: int) -> bool:
+    '''Returns whether num1 and num2 share any digits
+    
+    >>> share_digits(12, 25)
+    True
+    >>> share_digits(10, 21)
+    False
+    '''
+    num1_str, num2_str = str(num1), str(num2)
+    for c in num1_str:
+        if c in num2_str:
+            return True
+
+    return False
+
+
 def is_pandigital(num: int) -> bool:
     '''Returns whether a number is pandigital
     
