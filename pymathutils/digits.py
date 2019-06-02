@@ -81,7 +81,7 @@ def is_pandigital(num: int) -> bool:
 
     >>> is_pandigital(2143)
     True
-    >>> is_pandigital(2144)
+    >>> is_pandigital(2133)
     False
     >>> is_pandigital(210)
     False
