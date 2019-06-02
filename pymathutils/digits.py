@@ -1,4 +1,5 @@
 '''Operations on digits'''
+from typing import List
 
 
 def num_digits(num: int) -> int:
@@ -19,7 +20,7 @@ def share_digits(num1: int, num2: int) -> bool:
     
     >>> share_digits(12, 25)
     True
-    >>> share_digits(10, 21)
+    >>> share_digits(30, 21)
     False
     '''
     num1_str, num2_str = str(num1), str(num2)
@@ -28,6 +29,23 @@ def share_digits(num1: int, num2: int) -> bool:
             return True
 
     return False
+
+
+def shared_digits(num1: int, num2: int) -> List[int]:
+    '''Returns a list of digits in both num1 and num2
+    
+    Returns an empty list if no digits shared between two numbers.
+    The list returned is unique, i.e. if digits appear multiple times
+    in both numbers, it only appears once in the returned list.
+
+    >>> shared_digits(123, 234)
+    [2, 3]
+    >>> shared_digits(123, 456)
+    []
+    >>> 
+    '''
+    shared_d = [int(d) for d in str(num1) if d in str(num2)]
+    return list(dict.fromkeys(shared_d))
 
 
 def is_pandigital(num: int) -> bool:
