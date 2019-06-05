@@ -21,7 +21,7 @@ jobs:
           name: check black formatting
           command: |
             source activate math-env
-            black --check pymathutils/
+            black --check .
       - run:
           name: build dist
           command: |
