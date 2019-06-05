@@ -1,6 +1,9 @@
 name: math-env
+channels:
+  - conda-forge
 dependencies:
   - python=3.7
+  - black
   - coverage
   - mypy
   - pytest

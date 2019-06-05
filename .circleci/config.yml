@@ -18,6 +18,11 @@ jobs:
             source activate math-env
             mypy pymathutils
       - run:
+          name: check black formatting
+          command: |
+            source activate math-env
+            black --check pymathutils/
+      - run:
           name: build dist
           command: |
             source activate math-env
