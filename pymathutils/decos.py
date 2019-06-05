@@ -17,15 +17,18 @@ def cast_args(*types):
     arg1 type = <class 'str'>
     arg2 type = <class 'int'>
     """
+
     def decorator(func):
         @functools.wraps(func)
         def new_func(*args, **kwargs):
-            new_args = []        
+            new_args = []
             for (arg, new_type) in zip(args, types):
                 if new_type is None:
                     new_args.append(arg)
                 else:
                     new_args.append(new_type(arg))
             return func(*new_args, **kwargs)
+
         return new_func
+
     return decorator

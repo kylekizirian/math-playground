@@ -1,7 +1,7 @@
 import math
 
 
-class Fibonacci():
+class Fibonacci:
     """Class for implementing fibonacci generator
     
     >>> fibonacci_seq = Fibonacci(5)
