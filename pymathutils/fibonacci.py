@@ -1,9 +1,8 @@
-import math
 
 
 class Fibonacci:
     """Class for implementing fibonacci generator
-    
+
     >>> fibonacci_seq = Fibonacci(5)
     >>> for fibonacci_num in fibonacci_seq:
     ...     print(fibonacci_num)

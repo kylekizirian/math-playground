@@ -5,7 +5,7 @@ from pymathutils import primes
 
 def get_prime_factors(num: int, prime_list: list = None) -> list:
     """Returns a list of tuples containing prime factors and their multiplicty
-    
+
     To speed up repeated calculations, can optionally pass in a list of primes
     which will be used to generate the list of prime factors.
 
@@ -36,7 +36,7 @@ def get_prime_factors(num: int, prime_list: list = None) -> list:
 
 def simple_get_divisors(num: int) -> list:
     """Returns a list of proper divisors of num from 1 to n / 2
-    
+
     Uses simplest method by checking all numbers from 1 to n / 2 to determine
     if they are a divisor of n
 
@@ -81,7 +81,7 @@ def get_divisors_with_parity_check(num: int) -> list:
 
 def get_sum_of_proper_divisors(num: int, prime_factors: list = None) -> int:
     """Returns the sum of proper divisors of num
-    
+
     Can optionally pass in a pre-calculated list of a num's prime factors
     where each list item is a tuple of the form (prime_factor, multiplicity)
 
@@ -105,7 +105,7 @@ def get_sum_of_proper_divisors(num: int, prime_factors: list = None) -> int:
 
 def is_abundant_num(num: int, get_divisors_func=simple_get_divisors) -> bool:
     """Takes in an integer and returns whether it is an abundant numuber
-    
+
     Finds all divisors between 1 and n / 2 and sums them up, determining
     if their sum is greater than n. If so, returns True, else False.
 

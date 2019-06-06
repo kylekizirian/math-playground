@@ -5,7 +5,7 @@ import functools
 
 def cast_args(*types):
     """Casts arguments to specified type
-    
+
     If None is supplied, then argument is left alone
 
     >>> @cast_args(None, int)

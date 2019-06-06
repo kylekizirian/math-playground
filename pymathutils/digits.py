@@ -4,7 +4,7 @@ from typing import List, Tuple
 
 def num_digits(num: int) -> int:
     """Returns number of digits in an integer
-    
+
     >>> num_digits(123)
     3
     >>> num_digits(1)
@@ -17,7 +17,7 @@ def num_digits(num: int) -> int:
 
 def share_digits(num1: int, num2: int) -> bool:
     """Returns whether num1 and num2 share any digits
-    
+
     >>> share_digits(12, 25)
     True
     >>> share_digits(30, 21)
@@ -33,7 +33,7 @@ def share_digits(num1: int, num2: int) -> bool:
 
 def shared_digits(num1: int, num2: int) -> List[int]:
     """Returns a list of digits in both num1 and num2
-    
+
     Returns an empty list if no digits shared between two numbers.
     The list returned is unique, i.e. if digits appear multiple times
     in both numbers, it only appears once in the returned list.
@@ -42,7 +42,6 @@ def shared_digits(num1: int, num2: int) -> List[int]:
     [2, 3]
     >>> shared_digits(123, 456)
     []
-    >>> 
     """
     shared_d = [int(d) for d in str(num1) if d in str(num2)]
     return list(dict.fromkeys(shared_d))
@@ -50,7 +49,7 @@ def shared_digits(num1: int, num2: int) -> List[int]:
 
 def remove_shared_digits(num1: int, num2: int) -> Tuple[int, int]:
     """Takes two integers and returns them with shared digits removed
-    
+
     If two integers don't share any digits, returns original numbers
 
     >>> remove_shared_digits(49, 98)
@@ -74,7 +73,7 @@ def remove_shared_digits(num1: int, num2: int) -> Tuple[int, int]:
 
 def is_pandigital(num: int) -> bool:
     """Returns whether a number is pandigital
-    
+
     An n-digit number is pandigital if it makes use of
     all the digits 1 to n exactly once; for example, the 5-digit
     number, 15234, is 1 through 5 pandigital.
@@ -87,16 +86,16 @@ def is_pandigital(num: int) -> bool:
     False
     """
     num_str: str = str(num)
-    num_digits: int = len(num_str)
+    n_digits: int = len(num_str)
 
     if "0" in num_str:
         return False
 
     for n in num_str:
-        if int(n) > num_digits:
+        if int(n) > n_digits:
             return False
 
-    for i in range(1, num_digits):
+    for i in range(1, n_digits):
         if num_str.count(str(i)) != 1:
             return False
 
