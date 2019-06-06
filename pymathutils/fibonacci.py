@@ -1,5 +1,3 @@
-
-
 class Fibonacci:
     """Class for implementing fibonacci generator
 
