@@ -63,7 +63,7 @@ class Primes:
 
     def __contains__(self, item: int):
         """Returns whether given number is prime
-        
+
         >>> primes = Primes(50)
         >>> 7 in primes
         True
