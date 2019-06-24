@@ -13,6 +13,10 @@ def get_prime_factors(num: int, prime_list: list = None) -> list:
     [(2, 2), (3, 1)]
     >>> get_prime_factors(14)
     [(2, 1), (7, 1)]
+    >>> get_prime_factors(2)
+    [(2, 1)]
+    >>> get_prime_factors(4)
+    [(2, 2)]
     """
     upper_bound = math.ceil(num / 2) + 1
     if not prime_list:
@@ -23,13 +27,16 @@ def get_prime_factors(num: int, prime_list: list = None) -> list:
         temp = num
         multiplicity = 0
         temp, remainder = divmod(temp, prime)
-        while remainder == 0 and temp > 1:
+        while remainder == 0 and temp >= 1:
             multiplicity += 1
             temp, remainder = divmod(temp, prime)
         if multiplicity > 0:
             prime_factors.append((prime, multiplicity))
         if prime > upper_bound:
             break
+
+    if not prime_factors:
+        prime_factors = [(num, 1)]
 
     return prime_factors
 
@@ -122,3 +129,7 @@ def is_abundant_num(num: int, get_divisors_func=simple_get_divisors) -> bool:
     """
     divisors = get_divisors_func(num)
     return sum(divisors) > num
+
+
+if __name__ == "__main__":
+    get_prime_factors(4)
