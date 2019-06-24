@@ -3,7 +3,7 @@ from hypothesis import given, settings, strategies
 from pymathutils import factors
 
 
-@given(strategies.integers(min_value=1))
+@given(strategies.integers(min_value=1, max_value=10 ** 6))
 @settings(deadline=None)
 def test_get_prime_factors(num):
     prime_factors = factors.get_prime_factors(num)
