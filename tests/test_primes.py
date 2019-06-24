@@ -1,5 +1,3 @@
-import timeit
-
 from pymathutils import primes
 
 
