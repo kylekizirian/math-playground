@@ -81,6 +81,17 @@ class Primes:
         """
         return self._len
 
+    def __getitem__(self, pos):
+        """Gets prime at position
+
+        >>> primes = Primes(50)
+        >>> primes[0]
+        2
+        >>> primes[0:4]
+        [2, 3, 5, 7]
+        """
+        return self._prime_list[pos]
+
     def is_prime(self, potential_prime: int) -> bool:
         """Checks if a given input number is prime
 
